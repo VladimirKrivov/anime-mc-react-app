@@ -1,0 +1,30 @@
+@import "../../../scss/colors";
+@import "../../../scss/font";
+
+.newsWrapper {
+  height: 800px;
+  position: relative;
+
+
+
+  h2 {
+    padding: 120px 0 0 80px;
+  }
+  .newsCardWrapper{
+    .newsCard{
+
+    }
+  }
+  .visor{
+    width: 310px;
+    height: 310px;
+    background-image: url("../../../resourses/images/homePage/visor.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -160px;
+    right: 50px;
+    z-index: 9999;
+  }
+}

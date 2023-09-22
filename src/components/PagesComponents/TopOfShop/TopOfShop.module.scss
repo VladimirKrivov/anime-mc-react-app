@@ -1,0 +1,83 @@
+@import "../../../scss/colors";
+@import "../../../scss/font";
+
+.topShopWrapper {
+  height: 900px;
+
+  position: relative;
+
+  background-blend-mode: multiply;
+  background-image: url("../../../resourses/images/homePage/ShopBackground.png");
+  background-color: $transparentBackground;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .topLine1 {
+    width: 0;
+    height: 0;
+    border-top: 90px solid $backgroundPageColor;
+    border-right: 50vw solid transparent;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .topLine2 {
+    width: 0;
+    height: 0;
+    border-top: 90px solid $backgroundPageColor;
+    border-left: 50vw solid transparent;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+
+  .bottomLine1 {
+    width: 0;
+    height: 0;
+    border-bottom: 90px solid $backgroundPageColor;
+    border-right: 50vw solid transparent;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .bottomLine2 {
+    width: 0;
+    height: 0;
+    border-bottom: 90px solid $backgroundPageColor;
+    border-left: 50vw solid transparent;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+
+
+
+
+  .divWrapper {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    h2 {
+      padding: 120px 0 0 80px;
+    }
+  }
+
+  .topShopCardWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 50px 0;
+  }
+}

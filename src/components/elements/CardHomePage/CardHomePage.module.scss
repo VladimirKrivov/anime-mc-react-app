@@ -1,0 +1,54 @@
+@import "../../../scss/colors";
+@import "../../../scss/font";
+
+.cardWrapper {
+  width: 326px;
+  height: 326px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  margin: 0 15px 0 0;
+
+  .imageWrapper {
+    background: linear-gradient(#D06868, #933535);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0 5px 0;
+    //box-shadow: 0 7px 0 0 $shadowColor;
+    border-bottom: $shadowColor solid 7px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .textWrapper {
+    color: $mainTextColor;
+    width: 326px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: $bottomCardColor;
+    z-index: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    p {
+      padding: 0 0 0 20px;
+      font-family: PressStartRegular, serif;
+      font-size: 20px;
+    }
+  }
+
+
+}

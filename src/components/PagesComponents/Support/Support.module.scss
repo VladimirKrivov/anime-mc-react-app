@@ -1,0 +1,91 @@
+@import "../../../scss/colors";
+@import "../../../scss/font";
+
+.SupportWrapper {
+  height: 800px;
+  position: relative;
+  background-color: #139049;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+  h2 {
+    padding: 120px 0 0 80px;
+  }
+  .SupportCardWrapper{
+    width: 1000px;
+    height: 570px;
+    background-color: aqua;
+    position: relative;
+    border-radius: 10px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p{
+      font-family: PressStartRegular, serif;
+      color: $mainTextColor;
+      font-size: 36px;
+    }
+
+
+
+
+
+    .visor{
+      width: 274px;
+      height: 313px;
+      background-image: url("../../../resourses/images/homePage/gast 2.svg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: -115px;
+      right: -170px;
+      z-index: 9999;
+    }
+
+    .girl{
+      width: 288px;
+      height: 405px;
+      background-image: url("../../../resourses/images/homePage/girl_in_glass.svg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 60px;
+      left: -202px;
+      z-index: 1;
+    }
+
+    .SupportCard{
+
+    }
+  }
+
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 0 0 0;
+    .lable {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 25px 0;
+      label{
+        font-family: PressStartRegular, serif;
+        color: $mainTextColor;
+        font-size: 28px;
+      }
+      input{
+        width: 600px;
+        height: 40px;
+      }
+    }
+  }
+
+}

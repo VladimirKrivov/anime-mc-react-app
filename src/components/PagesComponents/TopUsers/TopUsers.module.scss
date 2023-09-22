@@ -1,0 +1,70 @@
+@import "../../../scss/colors";
+@import "../../../scss/font";
+
+.TopUsersWrapper {
+  height: 1300px;
+  position: relative;
+
+
+
+  h2 {
+    padding: 120px 0 0 80px;
+  }
+  .TopUsersCardWrapper{
+    .TopUsersCard{
+
+    }
+  }
+  .visor1{
+    width: 319px;
+    height: 365px;
+    background-image: url("../../../resourses/images/homePage/gast.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 130px;
+    left: 50px;
+    z-index: 9999;
+  }
+
+  .visor2{
+    width: 219px;
+    height: 251px;
+    background-image: url("../../../resourses/images/homePage/gast.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -50px;
+    left: 300px;
+    z-index: 9999;
+  }
+
+  .visor3{
+    width: 208px;
+    height: 237px;
+    background-image: url("../../../resourses/images/homePage/gast 2.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    z-index: 9999;
+  }
+
+  .visor4{
+    width: 143px;
+    height: 163px;
+    background-image: url("../../../resourses/images/homePage/gast 2.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 250px;
+    right: 200px;
+    z-index: 9999;
+  }
+
+}

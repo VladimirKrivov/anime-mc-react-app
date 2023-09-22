@@ -3,26 +3,82 @@
 
 header {
   z-index: 9999;
-  height: 60px;
+  height: 100px;
+  position: relative;
 
 
   .headerWrapper {
     display: flex;
     justify-content: space-between;
     padding: 25px 25px 0 110px;
+    z-index: 5;
 
     h1 {
       font-family: JapaneseRegular, serif;
       font-weight: 400;
       font-size: 58px;
+      color: $mainTextColor;
       margin: 0;
       padding: 0;
+      z-index: 5;
     }
 
   }
 
-  .headerLine {
-    height: 10px;
-    background-color: $backgroundElementColor;
+  .headerLine1 {
+    //height: 50px;
+    //width: 100%;
+    //background-color: $backgroundElementColor;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid $backgroundElementColor;
+    border-right: 52vw solid transparent;
   }
+  .headerLine2 {
+    //height: 50px;
+    //width: 100%;
+    //background-color: $backgroundElementColor;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid $backgroundElementColor;
+    border-left: 52vw solid transparent;
+  }
+}
+
+//Menu Navigation
+.navMenuWrapper {
+  z-index: 5;
+  display: flex;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 15px 25px 0 0;
+    z-index: 5;
+    display: flex;
+
+    li {
+      z-index: 5;
+      padding: 0 25px 0 0;
+      font-family: JapaneseRegular, serif;
+      font-weight: 400;
+      font-size: 32px;
+      color: $mainTextColor;
+
+      a {
+        color: white !important;
+        text-decoration: none;
+        z-index: 5;
+      }
+    }
+  }
+
 }

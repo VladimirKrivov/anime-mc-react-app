@@ -3,12 +3,21 @@ import "../scss/homePage.scss"
 
 import Header from "../components/PagesComponents/Header";
 import Footer from "../components/PagesComponents/Footer";
+import Slider from "../components/PagesComponents/Slider";
+import News from "../components/PagesComponents/News";
+import TopOfShop from "../components/PagesComponents/TopOfShop";
+import TopUsers from "../components/PagesComponents/TopUsers";
+import Support from "../components/PagesComponents/Support";
 
 function Home() {
     return (
         <div className="wrapper-home">
-            <Header/>
-            <h1>ANIME CRAFT</h1>
+            {/*<Header/>*/}
+            <Slider/>
+            <News/>
+            <TopOfShop/>
+            <TopUsers/>
+            <Support/>
             <Footer/>
         </div>
     );
