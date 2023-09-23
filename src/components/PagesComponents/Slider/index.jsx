@@ -13,6 +13,9 @@ function Slider() {
            <div className={styles.headerLineWrapper}>
                <div className={styles.headerLine2}></div>
                <div className={styles.headerLine1}></div>
+               <div className={styles.bottomLineDop1}></div>
+               <div className={styles.bottomLineDop2}></div>
+
            </div>
 
 

@@ -1,0 +1,170 @@
+@import "../../../scss/colors";
+@import "../../../scss/font";
+
+
+footer {
+  width: 100%;
+
+  .footerWrapper {
+    width: 100%;
+    position: relative;
+    padding: 79px 0 0 0;
+
+
+
+    .girl {
+      width: 462px;
+      height: 462px;
+      background-image: url("../../../resourses/images/homePage/footer_tyan.svg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: 0;
+      left: 115px;
+      z-index: 999;
+    }
+
+    .bottomLineDop1 {
+      width: 0;
+      height: 0;
+      border-bottom: 80px solid $backgroundElementColor;
+      border-right: 50vw solid transparent;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .bottomLineDop2 {
+      width: 0;
+      height: 0;
+      border-bottom: 80px solid $backgroundElementColor;
+      border-left: 50vw solid transparent;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .footerElementWrapper {
+      padding: 85px 0 0 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: $backgroundElementColor;
+      position: relative;
+
+
+      .textWrapper {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .heart {
+          width: 49px;
+          height: 49px;
+          background-image: url("../../../resourses/images/homePage/heart.svg");
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: absolute;
+          top: -70px;
+        }
+
+        .head {
+          font-family: PressStartRegular, serif;
+          color: $mainTextColor;
+          font-size: 24px;
+          text-transform: uppercase;
+
+        }
+
+        .socialWrapper {
+          display: flex;
+          padding: 0 0 10px 0;
+
+          .social1, .social2, .social3 {
+            width: 49px;
+            height: 49px;
+            //background-color: #230104;
+            padding-right: 10px;
+            a {
+              display: flex;
+              //background-color: #230104;
+              margin: 0;
+              padding: 0;
+              text-decoration: 0;
+              color: white;
+              width: 49px;
+              height: 49px;
+              z-index: 999;
+            }
+          }
+
+          .social1 {
+            background-image: url("../../../resourses/images/homePage/social (1).svg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            a {
+            }
+          }
+
+          .social2 {
+            background-image: url("../../../resourses/images/homePage/social (2).svg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            a {
+            }
+          }
+
+          .social3 {
+            background-image: url("../../../resourses/images/homePage/social (3).svg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            a {
+            }
+          }
+        }
+
+        p {
+          font-family: PressStartRegular, serif;
+          color: $vechiTextColor;
+          font-size: 16px;
+          margin: 0;
+          padding: 0 0 15px 0;
+        }
+      }
+
+      .navWrapper {
+        width: 300px;
+        height: 210px;
+        //background-color: #139049;
+        position: absolute;
+        top: 0;
+        right: 25px;
+        ul{
+          //background-color: aqua;
+          li{
+            list-style: none;
+            padding: 15px 0 0 0;
+            a{
+              text-transform: uppercase;
+              text-decoration: none;
+              font-family: PressStartRegular, serif;
+              color: $mainTextColor;
+              font-size: 20px;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

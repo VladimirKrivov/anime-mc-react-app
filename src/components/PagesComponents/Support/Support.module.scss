@@ -4,10 +4,12 @@
 .SupportWrapper {
   height: 800px;
   position: relative;
-  background-color: #139049;
+  background-color: $backgroundPageColor;
   display: flex;
   justify-content: center;
   align-items: center;
+
+
 
 
 
@@ -17,7 +19,7 @@
   .SupportCardWrapper{
     width: 1000px;
     height: 570px;
-    background-color: aqua;
+    background-color: $backgroundElementColor;
     position: relative;
     border-radius: 10px;
     z-index: 5;
@@ -80,10 +82,49 @@
         font-family: PressStartRegular, serif;
         color: $mainTextColor;
         font-size: 28px;
+        padding: 10px 0 0 0;
       }
-      input{
+
+      input, textarea{
         width: 600px;
         height: 40px;
+        border-radius: 7px;
+        border: solid $inputTextColor 2px;
+        font-family: PressStartRegular, serif;
+        color: $inputTextColor;
+        font-size: 20px;
+        padding-left: 15px;
+      }
+
+      textarea {
+        padding: 5px 0 0 15px;
+      }
+
+      input::placeholder, textarea::placeholder {
+        text-align: center;
+      }
+
+      input, select, textarea{
+        color: $inputTextColor;
+      }
+      .inputText {
+        height: 250px;
+        color: $inputTextColor;
+      }
+    }
+    .submitButtWrapper {
+      color: rebeccapurple;
+      input {
+        width: 500px;
+        height: 75px;
+        font-family: PressStartRegular, serif;
+        color: $mainTextColor;
+        font-size: 28px;
+        background-color: $oneButtonColor;
+        position: absolute;
+        bottom: -37px;
+        left: 250px;
+        border-radius: 7px;
       }
     }
   }

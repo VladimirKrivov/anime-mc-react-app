@@ -4,32 +4,34 @@ import styles from './Support.module.scss'
 function Support() {
     return (
         <div className={styles.SupportWrapper}>
+
+
+
             <div className={styles.SupportCardWrapper}>
                 <div className={styles.visor}></div>
                 <div className={styles.girl}></div>
                 <div className={styles.SupportCard}></div>
 
-                <p>Сообщите о проблеме</p>
+                <p>Сообщить о проблеме</p>
                 <form action="" method="get" className={styles.form}>
                     <div className={styles.lable}>
-                        <label htmlFor="name">user id: </label>
-                        <input type="text" name="name" id="name" required/>
+                        <label htmlFor="user_id">user id: </label>
+                        <input placeholder="user_id" type="text" name="user_id" id="user_id" required/>
                     </div>
-                    <div className={styles.lable}>
-                        <label htmlFor="email">text: </label>
-                        <input type="text" name="text" id="text" required/>
+                    <div className={`${styles.lable}`}>
+                        <label htmlFor="text">text: </label>
+                        {/*<input  placeholder="опишите проблему..." type="text" name="text" id="text" required/>*/}
+                        <textarea placeholder="опишите проблему..." className={styles.inputText}  name="text" rows="14" cols="80" wrap="soft"></textarea>
                     </div>
-                    <div>
-                        <input type="submit" value="Отправить!!"/>
+                    <div className={styles.submitButtWrapper}>
+                        <input type="submit" value="ОТПРАВИТЬ"/>
                     </div>
                 </form>
 
             </div>
 
 
-
         </div>
-
 
 
     );

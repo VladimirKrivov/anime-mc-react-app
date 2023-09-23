@@ -11,9 +11,13 @@ function TopOfShop() {
 
         <div className={styles.topLine1}></div>
         <div className={styles.topLine2}></div>
+        <div className={styles.topLineDop1}></div>
+        <div className={styles.topLineDop2}></div>
 
         <div className={styles.bottomLine1}></div>
         <div className={styles.bottomLine2}></div>
+        <div className={styles.bottomLineDop1}></div>
+        <div className={styles.bottomLineDop2}></div>
 
         <div className={styles.divWrapper}>
             <h2>Top Of Shop</h2>

@@ -4,6 +4,12 @@ import styles from './TopUsers.module.scss'
 function TopUsers() {
     return (
         <div className={styles.TopUsersWrapper}>
+
+            <div className={styles.bottomLine1}></div>
+            <div className={styles.bottomLine2}></div>
+            <div className={styles.bottomLineDop1}></div>
+            <div className={styles.bottomLineDop2}></div>
+
             <h2>Top Users</h2>
             <div className={styles.TopUsersCardWrapper}>
                 <div className={styles.TopUsersCard}>

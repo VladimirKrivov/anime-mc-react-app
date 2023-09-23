@@ -21,7 +21,7 @@
     height: 0;
     border-top: 90px solid $backgroundPageColor;
     border-right: 50vw solid transparent;
-
+    z-index: 5;
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +32,29 @@
     height: 0;
     border-top: 90px solid $backgroundPageColor;
     border-left: 50vw solid transparent;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
+  .topLineDop1 {
+    width: 0;
+    height: 0;
+    border-top: 130px solid $backgroundElementColor;
+    border-right: 50vw solid transparent;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .topLineDop2 {
+    width: 0;
+    height: 0;
+    border-top: 130px solid $backgroundElementColor;
+    border-left: 50vw solid transparent;
+    z-index: 1;
     position: absolute;
     top: 0;
     right: 0;
@@ -44,7 +66,7 @@
     height: 0;
     border-bottom: 90px solid $backgroundPageColor;
     border-right: 50vw solid transparent;
-
+    z-index: 5;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -55,7 +77,29 @@
     height: 0;
     border-bottom: 90px solid $backgroundPageColor;
     border-left: 50vw solid transparent;
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 
+  .bottomLineDop1 {
+    width: 0;
+    height: 0;
+    border-bottom: 130px solid $backgroundElementColor;
+    border-right: 50vw solid transparent;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .bottomLineDop2 {
+    width: 0;
+    height: 0;
+    border-bottom: 130px solid $backgroundElementColor;
+    border-left: 50vw solid transparent;
+    z-index: 1;
     position: absolute;
     bottom: 0;
     right: 0;
