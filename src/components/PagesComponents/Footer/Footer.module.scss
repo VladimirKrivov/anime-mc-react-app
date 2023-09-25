@@ -14,7 +14,7 @@ footer {
 
     .girl {
       width: 462px;
-      height: 462px;
+      height: 400px;
       background-image: url("../../../resourses/images/homePage/footer_tyan.svg");
       background-position: center;
       background-size: contain;
@@ -22,7 +22,7 @@ footer {
       position: absolute;
       bottom: 0;
       left: 115px;
-      z-index: 999;
+      z-index: 10;
     }
 
     .bottomLineDop1 {
@@ -101,7 +101,7 @@ footer {
               color: white;
               width: 49px;
               height: 49px;
-              z-index: 999;
+              z-index: 10;
             }
           }
 

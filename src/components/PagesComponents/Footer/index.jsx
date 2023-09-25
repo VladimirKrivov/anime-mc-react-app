@@ -32,6 +32,7 @@ function Footer() {
                    </div>
                    <div className={styles.navWrapper}>
                        <ul>
+                           <li><a href="/account">аккаунт</a></li>
                            <li><a href="">новости</a></li>
                            <li><a href="">магазин</a></li>
                            <li><a href="">пользователи</a></li>

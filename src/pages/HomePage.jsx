@@ -8,12 +8,17 @@ import News from "../components/PagesComponents/News";
 import TopOfShop from "../components/PagesComponents/TopOfShop";
 import TopUsers from "../components/PagesComponents/TopUsers";
 import Support from "../components/PagesComponents/Support";
+import LoginPanel from "../components/elements/LoginPanel";
 
 function Home() {
+
+
     return (
         <div className="wrapper-home">
-            {/*<Header/>*/}
+
+            <Header/>
             <Slider/>
+            <LoginPanel/>
             <News/>
             <TopOfShop/>
             <TopUsers/>

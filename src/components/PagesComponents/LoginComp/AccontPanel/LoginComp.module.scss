@@ -1,0 +1,153 @@
+@import "../../../../scss/colors";
+@import "../../../../scss/font";
+
+.accountWrapper {
+  margin: 100px 0 0 0;
+  height: 800px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .girl1{
+    width: 600px;
+    height: 670px;
+    background-image: url("../../../../resourses/images/homePage/bg_1 1.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -50px;
+    bottom: -70px;
+    z-index: 1;
+
+  }
+  .girl2{
+    width: 600px;
+    height: 670px;
+    background-image: url("../../../../resourses/images/homePage/bg_2 1.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0px;
+    bottom: -70px;
+    z-index: 1;
+  }
+
+  .blockWrapper{
+    width: 800px;
+    position: relative;
+    padding: 50px;
+
+
+    .buttonWrapper{
+      width: 100%;
+      display: flex;
+      .button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 50px;
+        background-color: $oneButtonColor;
+        margin: 10px;
+        border-radius: 7px;
+        a{
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          z-index: 5;
+          font-family: PressStartRegular, serif;
+          color: $mainTextColor;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .accountName{
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding: 25px 0 25px 0;
+      .icon{
+        padding: 0 25px 0 0;
+        width: 48px;
+        height: 48px;
+        background-image: url("../../../../resourses/images/homePage/account_name.svg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      p{
+        margin: 0;
+        padding: 0;
+        font-family: JapaneseRegular, serif;
+        font-weight: 400;
+        font-size: 30px;
+        color: $mainTextColor;
+      }
+    }
+
+    .settings{
+      display: flex;
+      img{
+        width: 350px;
+        height: 400px;
+      }
+      .accountInfoWrapper{
+
+        margin: 0 0 0 25px;
+        .accountButton{
+          width: 300px;
+          height: 40px;
+          background-color: $oneButtonColor;
+          margin: 10px 0 0 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 7px;
+          a{
+            text-decoration: none;
+            font-family: PressStartRegular, serif;
+            color: $mainTextColor;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .privInfoWrapper{
+          padding: 50px 0 0 0;
+          text-align: center;
+          .priv{
+            font-family: JapaneseRegular, serif;
+            font-weight: 400;
+            font-size: 30px;
+            color: $mainTextColor;
+            margin: 20px 0 0 0;
+          }
+          .info{
+            margin: 20px 0 0 0;
+            font-family: PressStartRegular, serif;
+            color: $smallTextColor;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+
+
+
+  }
+
+
+
+}
