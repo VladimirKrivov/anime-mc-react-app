@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Slider.module.scss'
 import AppContext from "../../../context";
+import gif from "../../../resourses/images/homePage/background.gif"
 import ButtonSlider from "../../elements/ButtonSlider";
 
 function Slider() {
@@ -13,6 +14,7 @@ function Slider() {
 
            {/*{isAuth? " " : <ButtonSlider/>}*/}
 
+           {/*<img className={styles.giv} src={gif} alt="background"/>*/}
 
            <button  className={styles.loginButton}>download</button>
 

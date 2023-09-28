@@ -12,7 +12,7 @@ function Account() {
             <Header/>
             <AccontPanel/>
 
-            <Footer/>
+            {/*<Footer/>*/}
         </div>
     );
 }

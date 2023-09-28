@@ -5,23 +5,34 @@ function AccountPanel() {
     return (
         <div className={styles.accountWrapper}>
 
-            <div className={styles.girl1}></div>
-            <div className={styles.girl2}></div>
+            {/*<div className={styles.girl1}></div>*/}
+            {/*<div className={styles.girl2}></div>*/}
+
+            <div className={styles.headerLineWrapper}>
+                <div className={styles.headerLine2}></div>
+                <div className={styles.headerLine1}></div>
+                <div className={styles.bottomLineDop1}></div>
+                <div className={styles.bottomLineDop2}></div>
+
+            </div>
+
+            <div className={styles.img1}></div>
+            <div className={styles.img2}></div>
 
             <div className={styles.blockWrapper}>
 
 
-                <div className={styles.buttonWrapper}>
-                    <div className={styles.button}>
-                        <a href="#">скин</a>
-                    </div>
-                    <div className={styles.button}>
-                        <a href="#">баланс</a>
-                    </div>
-                    <div className={styles.button}>
-                        <a href="#">привелегии</a>
-                    </div>
-                </div>
+                {/*<div className={styles.buttonWrapper}>*/}
+                {/*    <div className={styles.button}>*/}
+                {/*        <a href="#">скин</a>*/}
+                {/*    </div>*/}
+                {/*    <div className={styles.button}>*/}
+                {/*        <a href="#">баланс</a>*/}
+                {/*    </div>*/}
+                {/*    <div className={styles.button}>*/}
+                {/*        <a href="#">привелегии</a>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <div className={styles.accountName}>
                     <div className={styles.icon}></div>

@@ -4,12 +4,25 @@
 .sliderWrapper {
   height: 100vh;
   display: block;
-  background-image: url("../../../resourses/images/homePage/background.png");
+  background-image: url("../../../resourses/images/homePage/background.svg");
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
   position: relative;
+
+  //.giv {
+  //  position: absolute;
+  //  height: 100vh;
+  //  width: 100vw;
+  //  top: 0;
+  //  left: 0;
+  //  background-image: url("../../../resourses/images/homePage/background.svg");
+  //  background-size: auto;
+  //  background-position: center;
+  //  background-repeat: no-repeat;
+  //  text-align: center;
+  //}
 
   .loginButton {
     position: absolute;
