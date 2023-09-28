@@ -9,6 +9,7 @@ function Header() {
 
 
     return (
+       // <header>
        <header className={hiddenMenu ? " " : styles.displayNone }>
            <div className={styles.headerWrapper}>
                <a href="/">
