@@ -19,11 +19,11 @@ function Home() {
             <Header/>
             <Slider/>
             <LoginPanel/>
-            <News/>
-            <TopOfShop/>
-            <TopUsers/>
-            <Support/>
-            <Footer/>
+            {/*<News/>*/}
+            {/*<TopOfShop/>*/}
+            {/*<TopUsers/>*/}
+            {/*<Support/>*/}
+            {/*<Footer/>*/}
         </div>
     );
 }
