@@ -9,6 +9,8 @@ import TopOfShop from "../components/PagesComponents/TopOfShop";
 import TopUsers from "../components/PagesComponents/TopUsers";
 import Support from "../components/PagesComponents/Support";
 import LoginPanel from "../components/elements/LoginPanel";
+import RegistrationPanel from "../components/elements/RegistrationPanel";
+import ErrorPanel from "../components/elements/ErrorPanel";
 
 function Home() {
 
@@ -19,6 +21,8 @@ function Home() {
             <Header/>
             <Slider/>
             <LoginPanel/>
+            <RegistrationPanel/>
+            <ErrorPanel/>
             {/*<News/>*/}
             {/*<TopOfShop/>*/}
             {/*<TopUsers/>*/}

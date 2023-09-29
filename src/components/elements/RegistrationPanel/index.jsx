@@ -1,28 +1,28 @@
 import React from "react";
 import '../../../scss/login.css'
-import styles from './LoginPanel.module.scss'
+import styles from './RegistrationPanel.module.scss'
 import AppContext from "../../../context";
 
-function LoginPanel() {
-    const {store, login, loginPanelButton, clickCloseButton, errorLogLogin} = React.useContext(AppContext);
+function RegistrationPanel() {
+    const {store, login, loginPanelButton, clickCloseButtonReg, regPanelButton} = React.useContext(AppContext);
 
 
 
 
     const [userName, setUserName] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [email, setEmail] = React.useState('');
 
 
     return (
-        <div className={loginPanelButton ? styles.loginWrapper : styles.loginWrapperOf}
+        <div className={regPanelButton ? styles.loginWrapper : styles.loginWrapperOf}
         >
             <div className={styles.loginBox}>
-                <h2>Login</h2>
-
+                <h2>Registration</h2>
 
                 <form>
                     <div className={styles.userBox}>
-                        <div onClick={clickCloseButton} className={styles.cancel}></div>
+                        <div onClick={clickCloseButtonReg} className={styles.cancel}></div>
                         <input
                             onChange={e => setUserName(e.target.value)}
                             value={userName}
@@ -32,30 +32,26 @@ function LoginPanel() {
                     </div>
                     <div className={styles.userBox}>
                         <input
+                            onChange={e => setEmail(e.target.value)}
+                            type="email"
+                            value={email}
+                        />
+                        <label>Email</label>
+                    </div>
+                    <div className={styles.userBox}>
+                        <input
                             onChange={e => setPassword(e.target.value)}
                             type="password"
-                            placeholder="password"
                             value={password}
                         />
                         <label>Password</label>
                     </div>
-
-                    <p>{errorLogLogin}</p>
-
-                    {/*<button>*/}
-                    {/*    <span></span>*/}
-                    {/*    <span></span>*/}
-                    {/*    <span></span>*/}
-                    {/*    <span></span>*/}
-                    {/*    Sign in*/}
-                    {/*</button>*/}
-
                     <a href="#" onClick={() => login(userName, password)}>
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
-                        Sign in
+                        Registration
                     </a>
                 </form>
 
@@ -70,4 +66,4 @@ function LoginPanel() {
 );
 }
 
-export default LoginPanel;
+export default RegistrationPanel;
