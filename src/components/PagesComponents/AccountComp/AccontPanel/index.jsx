@@ -1,7 +1,10 @@
 import React from "react";
 import styles from './AccountPanel.module.scss'
+import AppContext from "../../../../context";
 
 function AccountPanel() {
+    const {hiddenMenu, userInfo, logout, clickCloseButton, isAuth} = React.useContext(AppContext);
+
     return (
         <div className={styles.accountWrapper}>
 
@@ -36,7 +39,7 @@ function AccountPanel() {
 
                 <div className={styles.accountName}>
                     <div className={styles.icon}></div>
-                    <p>maga_228</p>
+                    <p>{userInfo.username}</p>
                 </div>
 
                 <div className={styles.settings}>

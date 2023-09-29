@@ -16,6 +16,11 @@ function App() {
     const store = new Store();
     const instrumental = new Instrumental();
 
+    const [hiddenErrorPanel, setHiddenErrorPanel] = React.useState(false);
+
+    const [errorLogLogin, setErrorLogLogin] = React.useState(" ");
+    const [errorLogReg, setErrorLogReg] = React.useState(" ");
+
     // state Исчезновение и появление хидера
     const [hiddenMenu, setHiddenMenu] = React.useState(false);
     // Скрыть\показать меню логина
@@ -26,7 +31,31 @@ function App() {
         } else {
             setLoginPanelButton(true);
         }
+        setErrorLogLogin("")
     }
+
+    // Скрыть\показать меню реги
+    const [regPanelButton, setRegPanelButton] = React.useState(false);
+    const clickCloseButtonReg = () => {
+        if (regPanelButton) {
+            setRegPanelButton(false);
+        } else {
+            setRegPanelButton(true);
+        }
+    }
+
+    // Показать ошибку логина
+    const showErrorPanelAction = () => {
+        if (errorLogLogin !== " ") {
+            setHiddenErrorPanel(true);
+            console.log("до таймера")
+            setTimeout(() => { setHiddenErrorPanel(false) }, 3000);
+            console.log("после таймера")
+
+        }
+    }
+
+
 
     //Авторизация
     const [isAuth, setIsAuth] = React.useState(false);
@@ -44,7 +73,11 @@ function App() {
             const responseInfoUser = await AuthService.userInfo();
             setUserInfo(responseInfoUser.data);
         } catch (e) {
-            console.log(e.responce?.data?.message);
+            // console.log(e.responce?.data?.message);
+            console.log(e.response.data.code);
+            console.log(e.response.data.error);
+            setErrorLogLogin(e.response?.data?.error)
+            showErrorPanelAction();
         }
     }
     // CheckAutch
@@ -105,6 +138,11 @@ function App() {
             }
         }
 
+        async function showError() {
+
+        }
+
+
         scanToken();
     }, []);
 
@@ -122,7 +160,11 @@ function App() {
                     loginPanelButton,
                     clickCloseButton,
                     userInfo,
-                    logout
+                    clickCloseButtonReg,
+                    regPanelButton,
+                    errorLogLogin,
+                    logout,
+                    hiddenErrorPanel
                 }}>
                 <Routes>
                     <Route path="/" element={<Home/>}/>

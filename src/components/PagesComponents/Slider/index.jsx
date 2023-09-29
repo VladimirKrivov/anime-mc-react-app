@@ -1,7 +1,6 @@
 import React from "react";
 import styles from './Slider.module.scss'
 import AppContext from "../../../context";
-import gif from "../../../resourses/images/homePage/background.gif"
 import ButtonSlider from "../../elements/ButtonSlider";
 
 function Slider() {
