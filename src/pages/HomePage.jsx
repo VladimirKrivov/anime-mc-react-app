@@ -11,6 +11,7 @@ import Support from "../components/PagesComponents/Support";
 import LoginPanel from "../components/elements/LoginPanel";
 import RegistrationPanel from "../components/elements/RegistrationPanel";
 import ErrorPanel from "../components/elements/ErrorPanel";
+import SuccessfulPanel from "../components/elements/SuccessfulPanel";
 
 function Home() {
 
@@ -23,6 +24,7 @@ function Home() {
             <LoginPanel/>
             <RegistrationPanel/>
             <ErrorPanel/>
+            <SuccessfulPanel/>
             {/*<News/>*/}
             {/*<TopOfShop/>*/}
             {/*<TopUsers/>*/}

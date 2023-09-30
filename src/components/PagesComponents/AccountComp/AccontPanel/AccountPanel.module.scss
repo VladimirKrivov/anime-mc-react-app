@@ -1,6 +1,11 @@
 @import "../../../../scss/colors";
 @import "../../../../scss/font";
 
+
+.dNone {
+  display: none;
+}
+
 .accountWrapper {
   //margin: 100px 0 0 0;
   height: 100vh;
@@ -61,11 +66,6 @@
   }
 
 
-
-
-
-
-
   .img1 {
 
     width: 440px;
@@ -123,16 +123,17 @@
   //  z-index: 1;
   //}
 
-  .blockWrapper{
+  .blockWrapper {
     width: 800px;
     position: relative;
     padding: 150px 50px;
 
 
-    .buttonWrapper{
+    .buttonWrapper {
       width: 100%;
       display: flex;
-      .button{
+
+      .button {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -141,7 +142,8 @@
         background-color: $oneButtonColor;
         margin: 10px;
         border-radius: 7px;
-        a{
+
+        a {
           margin: 0;
           padding: 0;
           display: flex;
@@ -158,12 +160,13 @@
       }
     }
 
-    .accountName{
+    .accountName {
       display: flex;
       justify-content: start;
       align-items: center;
       padding: 25px 0 25px 0;
-      .icon{
+
+      .icon {
         padding: 0 25px 0 0;
         width: 48px;
         height: 48px;
@@ -172,7 +175,8 @@
         background-size: contain;
         background-repeat: no-repeat;
       }
-      p{
+
+      p {
         margin: 0;
         padding: 0;
         font-family: JapaneseRegular, serif;
@@ -182,16 +186,46 @@
       }
     }
 
-    .settings{
+    .settings {
       display: flex;
-      img{
+
+      img {
         width: 350px;
         height: 400px;
       }
-      .accountInfoWrapper{
+
+      .accountInfoWrapper {
+
+
+        .inputUpload {
+          display: flex;
+          padding: 20px 0 20px 0;
+          flex-direction: column;
+
+          form {
+            padding: 0;
+            margin: 0;
+            width: 270px;
+            label {
+              padding: 0 0 10px 0;
+              font-family: PressStartRegular, serif;
+              color: $mainTextColor;
+              font-size: 12px;
+            }
+
+            input {
+              //font-family: PressStartRegular, serif;
+              color: $mainTextColor;
+              font-size: 12px;
+
+            }
+          }
+        }
+
 
         margin: 0 0 0 25px;
-        .accountButton{
+
+        .accountButton {
           width: 300px;
           height: 40px;
           background-color: $oneButtonColor;
@@ -200,7 +234,8 @@
           justify-content: center;
           align-items: center;
           border-radius: 7px;
-          a{
+
+          a {
             text-decoration: none;
             font-family: PressStartRegular, serif;
             color: $mainTextColor;
@@ -212,17 +247,20 @@
             height: 100%;
           }
         }
-        .privInfoWrapper{
+
+        .privInfoWrapper {
           padding: 50px 0 0 0;
           text-align: center;
-          .priv{
+
+          .priv {
             font-family: JapaneseRegular, serif;
             font-weight: 400;
             font-size: 30px;
             color: $mainTextColor;
             margin: 20px 0 0 0;
           }
-          .info{
+
+          .info {
             margin: 20px 0 0 0;
             font-family: PressStartRegular, serif;
             color: $smallTextColor;
@@ -233,10 +271,7 @@
     }
 
 
-
-
   }
-
 
 
 }

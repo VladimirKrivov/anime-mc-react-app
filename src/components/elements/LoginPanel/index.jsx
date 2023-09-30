@@ -40,7 +40,7 @@ function LoginPanel() {
                         <label>Password</label>
                     </div>
 
-                    <p>{errorLogLogin}</p>
+                    {/*<p>{errorLogLogin}</p>*/}
 
                     {/*<button>*/}
                     {/*    <span></span>*/}

@@ -17,9 +17,10 @@ function App() {
     const instrumental = new Instrumental();
 
     const [hiddenErrorPanel, setHiddenErrorPanel] = React.useState(false);
+    const [hiddenSuccessfulPanel, setHiddenSuccessfulPanel] = React.useState(false);
 
     const [errorLogLogin, setErrorLogLogin] = React.useState(" ");
-    const [errorLogReg, setErrorLogReg] = React.useState(" ");
+    const [successfulLog, setSuccessfulLog] = React.useState(" ");
 
     // state Исчезновение и появление хидера
     const [hiddenMenu, setHiddenMenu] = React.useState(false);
@@ -31,7 +32,9 @@ function App() {
         } else {
             setLoginPanelButton(true);
         }
-        setErrorLogLogin("")
+        setErrorLogLogin(" ")
+
+
     }
 
     // Скрыть\показать меню реги
@@ -46,13 +49,27 @@ function App() {
 
     // Показать ошибку логина
     const showErrorPanelAction = () => {
-        if (errorLogLogin !== " ") {
+        // if (errorLogLogin !== " ") {
             setHiddenErrorPanel(true);
-            console.log("до таймера")
-            setTimeout(() => { setHiddenErrorPanel(false) }, 3000);
-            console.log("после таймера")
+            console.log("до таймера");
+            setTimeout(() => { setHiddenErrorPanel(false) }, 2000);
+            console.log("после таймера");
+            // setErrorLogLogin(" ")
+        // }
+        // setErrorLogLogin(" ")
+    }
 
-        }
+    // Показать успех логина
+    const showSuccessfulPanelAction = (text) => {
+        setSuccessfulLog(text);
+        // if (successfulLog !== " ") {
+            setHiddenSuccessfulPanel(true);
+            console.log("до таймера");
+            setTimeout(() => { setHiddenSuccessfulPanel(false) }, 2000);
+            console.log("после таймера");
+            // setSuccessfulLog(" ");
+        // }
+        // setSuccessfulLog(" ");
     }
 
 
@@ -72,14 +89,41 @@ function App() {
             clickCloseButton();
             const responseInfoUser = await AuthService.userInfo();
             setUserInfo(responseInfoUser.data);
+            showSuccessfulPanelAction("Авторизация прошла успешно!");
+            console.log("После логина:")
+            console.log(hiddenSuccessfulPanel)
+            setErrorLogLogin(" ")
         } catch (e) {
             // console.log(e.responce?.data?.message);
             console.log(e.response.data.code);
             console.log(e.response.data.error);
             setErrorLogLogin(e.response?.data?.error)
             showErrorPanelAction();
+
         }
     }
+
+    //Регистрация
+    const registration = async (username, email,  password) => {
+        try {
+            const  response = await AuthService.registration(username, email, password);
+            console.log(response);
+            localStorage.setItem('token', response.data.accessToken);
+            // localStorage.setItem('Rtoken', response.data.refreshToken);
+            // setIsAuth(true);
+            clickCloseButtonReg();
+            showSuccessfulPanelAction("Регистрация прошла успешно!");
+
+        } catch (e) {
+            console.log(e.response.data.code);
+            console.log(e.response.data.error);
+            setErrorLogLogin(e.response?.data?.error);
+            showErrorPanelAction();
+
+        }
+    }
+
+
     // CheckAutch
     const checkAuth = async () => {
         setLoading(true)
@@ -118,6 +162,9 @@ function App() {
             console.log(e.responce?.data?.message);
         }
     }
+
+
+    //Загрузка Скина
 
 
     React.useEffect(() => {
@@ -164,7 +211,10 @@ function App() {
                     regPanelButton,
                     errorLogLogin,
                     logout,
-                    hiddenErrorPanel
+                    hiddenErrorPanel,
+                    registration,
+                    successfulLog,
+                    hiddenSuccessfulPanel
                 }}>
                 <Routes>
                     <Route path="/" element={<Home/>}/>

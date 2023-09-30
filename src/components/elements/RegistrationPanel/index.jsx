@@ -4,7 +4,7 @@ import styles from './RegistrationPanel.module.scss'
 import AppContext from "../../../context";
 
 function RegistrationPanel() {
-    const {store, login, loginPanelButton, clickCloseButtonReg, regPanelButton} = React.useContext(AppContext);
+    const {store, login, loginPanelButton, clickCloseButtonReg, regPanelButton, registration} = React.useContext(AppContext);
 
 
 
@@ -46,7 +46,7 @@ function RegistrationPanel() {
                         />
                         <label>Password</label>
                     </div>
-                    <a href="#" onClick={() => login(userName, password)}>
+                    <a href="#" onClick={() => registration(userName, email, password)}>
                         <span></span>
                         <span></span>
                         <span></span>

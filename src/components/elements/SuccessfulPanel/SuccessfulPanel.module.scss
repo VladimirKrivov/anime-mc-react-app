@@ -12,8 +12,9 @@
 
 .errorWrapperOff {
   position: fixed;
-  transform: translateY(+100%);
   transition: all 0.5s ease-in-out;
+  transform: translateY(+100%);
+
 }
 
 
@@ -21,7 +22,7 @@
   transition: all 0.5s ease-in-out;
   width: 460px;
   height: 55px;
-  background-color: $errorBackgroundColor;
+  background-color: $successfulBackgroundColor;
   position: fixed;
   right: 15px;
   bottom: -50px;
@@ -36,7 +37,7 @@
 
   p {
     font-family: PressStartRegular, serif;
-    color: $errorTextColor;
+    color: $successfulTextColor;
     font-size: 12px;
     margin: 0;
     //padding: 0 0 15px 0;
