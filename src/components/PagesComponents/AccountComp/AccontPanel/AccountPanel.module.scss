@@ -171,6 +171,12 @@
     .settings {
       display: flex;
 
+      .skinWrapper{
+        background-color: $bottomCardColor;
+        border-radius: 7px;
+        border: solid $inputTextColor 1px;
+      }
+
       img {
         width: 350px;
         height: 400px;

@@ -1,14 +1,21 @@
-import React from "react";
+import React from "react"
+import ReactSkinview3d from "react-skinview3d"
 import styles from './AccountPanel.module.scss'
 import AppContext from "../../../../context";
 import CabinetService from "../../../../services/CabinetService";
 
+// import skin from "../../../../resourses/images/skin.png"
+
 function AccountPanel() {
     const {userInfo, isAuth, showSuccessfulPanelAction, showErrorPanelAction} = React.useContext(AppContext);
+
     const [closedUpload, setClosedUpload] = React.useState(false);
     const [closedUploadSlim, setClosedUploadSlim] = React.useState(false);
     const [imageSkin, setImageSkin] = React.useState(null);
     const [imageSkinSlim, setImageSkinSlim] = React.useState(null);
+    const [skinUrl, setSkinUrl] = React.useState(null);
+
+    const skin = "http://localhost:8080/assets/5ec15e64eb1fd798be836bb3818da661";
 
     //Загрузить обычный скин
     const uploadSkin = async () => {
@@ -22,6 +29,8 @@ function AccountPanel() {
         try {
             const response = await CabinetService.skinLoad(formData);
             showSuccessfulPanelAction("Скин успешно загружен");
+            // console.log(response.data.url);
+            setSkinUrl(response.data.url)
         } catch (e) {
             showErrorPanelAction(e.response.data.error);
         } finally {
@@ -95,6 +104,8 @@ function AccountPanel() {
         } else {
             setClosedUploadSlim(true);
         }
+
+        // console.log(userInfo.assets.skin);
     }
 
     return (
@@ -117,13 +128,29 @@ function AccountPanel() {
 
                     <>
                         <div className={styles.blockWrapper}>
+
                             <div className={styles.accountName}>
                                 <div className={styles.icon}></div>
                                 <p>{userInfo.username}</p>
                             </div>
 
                             <div className={styles.settings}>
-                                <img src="#" alt=""/>
+                                <div className={styles.skinWrapper}>
+                                    <ReactSkinview3d
+                                        skinUrl={
+                                            userInfo && userInfo.assets && userInfo.assets.skin
+                                                ? userInfo.assets.skin : skinUrl
+                                        }
+                                        // skinUrl={skin}
+                                        // capeUrl="textures/minecon-cape-2016.png"
+                                        height="500"
+                                        width="300"
+                                    />
+
+
+                                </div>
+                                {/*<img src={skin} alt="skin"/>*/}
+
                                 <div className={styles.accountInfoWrapper}>
 
                                     <div className={styles.privInfoWrapper}>
@@ -172,8 +199,6 @@ function AccountPanel() {
 
 
                                     {/*<button className={styles.accountButton}>Удалить скин</button>*/}
-
-
 
 
                                 </div>
