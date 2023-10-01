@@ -5,6 +5,7 @@ import AppContext from "../../../../context";
 import CabinetService from "../../../../services/CabinetService";
 
 // import skin from "../../../../resourses/images/skin.png"
+import {SKIN_URL} from "../../../../http";
 
 function AccountPanel() {
     const {userInfo, isAuth, showSuccessfulPanelAction, showErrorPanelAction} = React.useContext(AppContext);
@@ -15,7 +16,7 @@ function AccountPanel() {
     const [imageSkinSlim, setImageSkinSlim] = React.useState(null);
     const [skinUrl, setSkinUrl] = React.useState(null);
 
-    const skin = "https://anime-mc.ru/assets/19dc45643be80a0b0f19be210b4b86e0";
+    // const skin = "https://anime-mc.ru/assets/19dc45643be80a0b0f19be210b4b86e0";
 
     //Загрузить обычный скин
     const uploadSkin = async () => {
@@ -30,7 +31,9 @@ function AccountPanel() {
             const response = await CabinetService.skinLoad(formData);
             showSuccessfulPanelAction("Скин успешно загружен");
             // console.log(response.data.url);
-            setSkinUrl(response.data.url)
+            setSkinUrl(response.data.digest);
+            console.log(SKIN_URL + skinUrl)
+
         } catch (e) {
             showErrorPanelAction(e.response.data.error);
         } finally {
@@ -53,6 +56,8 @@ function AccountPanel() {
         try {
             const response = await CabinetService.skinLoad(formData);
             showSuccessfulPanelAction("Скин успешно загружен");
+            setSkinUrl(response.data.digest);
+
         } catch (e) {
             showErrorPanelAction(e.response.data.error);
         } finally {
@@ -137,11 +142,11 @@ function AccountPanel() {
                             <div className={styles.settings}>
                                 <div className={styles.skinWrapper}>
                                     <ReactSkinview3d
-                                        // skinUrl={
-                                        //     userInfo && userInfo.assets && userInfo.assets.skin
-                                        //         ? userInfo.assets.skin : skinUrl
-                                        // }
-                                        skinUrl={skin}
+                                        skinUrl={SKIN_URL +
+                                            userInfo && userInfo.assets && userInfo.assets.digest
+                                                ? userInfo.assets.digest : skinUrl
+                                        }
+                                        // skinUrl={skin}
                                         // capeUrl="textures/minecon-cape-2016.png"
                                         height="500"
                                         width="300"
