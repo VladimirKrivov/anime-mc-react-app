@@ -15,7 +15,7 @@ function AccountPanel() {
     const [imageSkinSlim, setImageSkinSlim] = React.useState(null);
     const [skinUrl, setSkinUrl] = React.useState(null);
 
-    const skin = "http://localhost:8080/assets/5ec15e64eb1fd798be836bb3818da661";
+    const skin = "https://anime-mc.ru/assets/19dc45643be80a0b0f19be210b4b86e0";
 
     //Загрузить обычный скин
     const uploadSkin = async () => {
@@ -137,11 +137,11 @@ function AccountPanel() {
                             <div className={styles.settings}>
                                 <div className={styles.skinWrapper}>
                                     <ReactSkinview3d
-                                        skinUrl={
-                                            userInfo && userInfo.assets && userInfo.assets.skin
-                                                ? userInfo.assets.skin : skinUrl
-                                        }
-                                        // skinUrl={skin}
+                                        // skinUrl={
+                                        //     userInfo && userInfo.assets && userInfo.assets.skin
+                                        //         ? userInfo.assets.skin : skinUrl
+                                        // }
+                                        skinUrl={skin}
                                         // capeUrl="textures/minecon-cape-2016.png"
                                         height="500"
                                         width="300"
