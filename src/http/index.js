@@ -7,6 +7,7 @@ export const DOWNLOAD_MAC_LINUX_URL = `http://localhost:3000`
 export const ANIME_MC_URL = `http://localhost:3000`
 export const SKIN_URL = `https://anime-mc.ru/assets/`
 
+
 const $api = axios.create({
     //Куки для каждого запроса автоматически
     withCredentials: true,

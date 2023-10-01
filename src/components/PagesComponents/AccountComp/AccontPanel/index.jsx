@@ -8,13 +8,13 @@ import CabinetService from "../../../../services/CabinetService";
 import {SKIN_URL} from "../../../../http";
 
 function AccountPanel() {
-    const {userInfo, isAuth, showSuccessfulPanelAction, showErrorPanelAction} = React.useContext(AppContext);
+    const {userInfo, isAuth, showSuccessfulPanelAction, showErrorPanelAction, skinUrl, setSkinUrl} = React.useContext(AppContext);
 
     const [closedUpload, setClosedUpload] = React.useState(false);
     const [closedUploadSlim, setClosedUploadSlim] = React.useState(false);
     const [imageSkin, setImageSkin] = React.useState(null);
     const [imageSkinSlim, setImageSkinSlim] = React.useState(null);
-    const [skinUrl, setSkinUrl] = React.useState(null);
+
 
     // const skin = "https://anime-mc.ru/assets/19dc45643be80a0b0f19be210b4b86e0";
 
@@ -30,9 +30,7 @@ function AccountPanel() {
         try {
             const response = await CabinetService.skinLoad(formData);
             showSuccessfulPanelAction("Скин успешно загружен");
-            // console.log(response.data.url);
-            setSkinUrl(response.data.digest);
-            console.log(SKIN_URL + skinUrl)
+
 
         } catch (e) {
             showErrorPanelAction(e.response.data.error);
@@ -101,6 +99,9 @@ function AccountPanel() {
         } else {
             setClosedUpload(true);
         }
+        setSkinUrl(SKIN_URL + userInfo.assets.skin.digest);
+        console.log(userInfo.assets.skin.digest)
+        console.log(skinUrl)
     }
 
     const closeOpenUploadSlim = () => {
@@ -134,6 +135,8 @@ function AccountPanel() {
                     <>
                         <div className={styles.blockWrapper}>
 
+                            <h3>{skinUrl}</h3>
+
                             <div className={styles.accountName}>
                                 <div className={styles.icon}></div>
                                 <p>{userInfo.username}</p>
@@ -141,12 +144,12 @@ function AccountPanel() {
 
                             <div className={styles.settings}>
                                 <div className={styles.skinWrapper}>
+
                                     <ReactSkinview3d
-                                        skinUrl={SKIN_URL +
-                                            userInfo && userInfo.assets && userInfo.assets.digest
-                                                ? userInfo.assets.digest : skinUrl
-                                        }
-                                        // skinUrl={skin}
+                                        // skinUrl={skinUrl ?
+                                        //     skinUrl : null
+                                        // }
+                                        // skinUrl={"http://localhost:8080/assets/817c83974ced944563e7ad3c3e5edb44" }
                                         // capeUrl="textures/minecon-cape-2016.png"
                                         height="500"
                                         width="300"

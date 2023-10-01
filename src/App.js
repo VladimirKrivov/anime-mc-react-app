@@ -8,10 +8,11 @@ import Instrumental from "./store/Instrumental";
 import AppContext from './context';
 import AuthService from "./services/AuthService";
 import axios from "axios";
-import {ANIME_MC_URL, API_URL} from "./http";
+import {ANIME_MC_URL, API_URL, SKIN_URL} from "./http";
 
 
 function App() {
+    const [skinUrl, setSkinUrl] = React.useState(null);
     const store = new Store();
     const instrumental = new Instrumental();
 
@@ -77,9 +78,6 @@ function App() {
             setHiddenSuccessfulPanel(false)
         }, 2000);
         console.log("после таймера");
-        // setSuccessfulLog(" ");
-        // }
-        // setSuccessfulLog(" ");
     }
 
 
@@ -180,7 +178,6 @@ function App() {
             console.log(userInfo.username);
         });
 
-
         async function scanToken() {
             if (!localStorage.getItem('token') && localStorage.getItem('Rtoken')) {
                 await checkAuth();
@@ -220,7 +217,9 @@ function App() {
                     showSuccessfulPanelAction,
                     showErrorPanelAction,
                     clickCloseDownload,
-                    downloadPanelButton
+                    downloadPanelButton,
+                    skinUrl,
+                    setSkinUrl
                 }}>
                 <Routes>
                     <Route path="/" element={<Home/>}/>

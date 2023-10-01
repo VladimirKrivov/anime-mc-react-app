@@ -4,7 +4,7 @@ import AppContext from "../../../context";
 import ButtonSlider from "../../elements/ButtonSlider";
 
 function Slider() {
-    const {store, isAuth, clickCloseDownload} = React.useContext(AppContext);
+    const {userInfo, clickCloseDownload, skinUrl, setSkinUrl} = React.useContext(AppContext);
 
 
     return (
@@ -13,6 +13,8 @@ function Slider() {
 
            <div className={styles.img1}></div>
            <div className={styles.img2}></div>
+
+           <h1>{skinUrl}</h1>
 
            <div className={styles.headerLineWrapper}>
                <div className={styles.headerLine2}></div>
