@@ -12,6 +12,7 @@ import LoginPanel from "../components/elements/LoginPanel";
 import RegistrationPanel from "../components/elements/RegistrationPanel";
 import ErrorPanel from "../components/elements/ErrorPanel";
 import SuccessfulPanel from "../components/elements/SuccessfulPanel";
+import DownloadPanel from "../components/elements/DownloadPanel";
 
 function Home() {
 
@@ -25,6 +26,7 @@ function Home() {
             <RegistrationPanel/>
             <ErrorPanel/>
             <SuccessfulPanel/>
+            <DownloadPanel/>
             {/*<News/>*/}
             {/*<TopOfShop/>*/}
             {/*<TopUsers/>*/}

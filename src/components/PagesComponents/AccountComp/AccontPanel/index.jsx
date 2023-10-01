@@ -1,59 +1,100 @@
 import React from "react";
 import styles from './AccountPanel.module.scss'
 import AppContext from "../../../../context";
-import $api from "../../../../http";
-import axios from "axios";
-// import AuthService from "../../../../services/AuthService";
+import CabinetService from "../../../../services/CabinetService";
 
 function AccountPanel() {
-    const {userInfo, isAuth} = React.useContext(AppContext);
+    const {userInfo, isAuth, showSuccessfulPanelAction, showErrorPanelAction} = React.useContext(AppContext);
     const [closedUpload, setClosedUpload] = React.useState(false);
-    const [imageSkin, setImageSkin] = React.useState();
+    const [closedUploadSlim, setClosedUploadSlim] = React.useState(false);
+    const [imageSkin, setImageSkin] = React.useState(null);
+    const [imageSkinSlim, setImageSkinSlim] = React.useState(null);
 
+    //Загрузить обычный скин
     const uploadSkin = async () => {
+        const formData = new FormData();
+        formData.append("options", new Blob([JSON.stringify({
+            "modelSlim": false
+        })], {
+            type: "application/json"
+        }));
+        formData.append("file", imageSkin);
         try {
-            $api.post('/cabinet/upload/skin', {
-                "variant": "slim",
-                "file": imageSkin,
-            })
+            const response = await CabinetService.skinLoad(formData);
+            showSuccessfulPanelAction("Скин успешно загружен");
         } catch (e) {
-        // console.log(e.responce?.data?.message);
-        console.log(e);
-        console.log(e.response.data.code);
-        console.log(e.response.data.error);
+            showErrorPanelAction(e.response.data.error);
+        } finally {
+            setClosedUpload(false);
+            setClosedUploadSlim(false);
+            setImageSkin(null);
+            setImageSkinSlim(null);
+        }
     }
 
-
-        // try {
-        //     const response = await axios({
-        //         method: "post",
-        //         url: "http://localhost:8080/cabinet/upload/skin",
-        //         data: imageSkin,
-        //         headers: { "Content-Type": "multipart/form-data" },
-        //     });
-        // } catch(error) {
-        //     console.log(error)
-        // }
-
-
-
-
+    //Загрузить слим скин
+    const uploadSkinSlim = async () => {
+        const formData = new FormData();
+        formData.append("options", new Blob([JSON.stringify({
+            "modelSlim": true
+        })], {
+            type: "application/json"
+        }));
+        formData.append("file", imageSkinSlim);
+        try {
+            const response = await CabinetService.skinLoad(formData);
+            showSuccessfulPanelAction("Скин успешно загружен");
+        } catch (e) {
+            showErrorPanelAction(e.response.data.error);
+        } finally {
+            setClosedUpload(false);
+            setClosedUploadSlim(false);
+            setImageSkin(null);
+            setImageSkinSlim(null);
+        }
     }
 
 
     const handleOnChange = (event) => {
         event.preventDefault();
-        console.log("change", event.target.files)
-        const file = event.target.files[0];
-        setImageSkin(file[0])
+        setImageSkin(event.target.files[0]);
+    }
+
+    const handleOnChangeSlim = (event) => {
+        event.preventDefault();
+        setImageSkinSlim(event.target.files[0]);
+    }
+
+    const nullScanImage = () => {
+        if (imageSkin == null) {
+            return "Выбрать файл...";
+        } else {
+            return imageSkin.name;
+        }
+    }
+
+    const nullScanImageSlim = () => {
+        if (imageSkinSlim == null) {
+            return "Выбрать файл...";
+        } else {
+            return imageSkinSlim.name;
+        }
     }
 
     const closeOpenUpload = () => {
-      if (closedUpload) {
-          setClosedUpload(false);
-      } else {
-          setClosedUpload(true);
-      }
+        if (closedUpload) {
+            setClosedUpload(false);
+        } else {
+            setClosedUpload(true);
+        }
+    }
+
+    const closeOpenUploadSlim = () => {
+        if (closedUploadSlim) {
+            setClosedUploadSlim(false);
+        } else {
+            setClosedUploadSlim(true);
+        }
     }
 
     return (
@@ -85,14 +126,19 @@ function AccountPanel() {
                                 <img src="#" alt=""/>
                                 <div className={styles.accountInfoWrapper}>
 
-
-                                    <div className={styles.accountButton}>
-                                        <a onClick={closeOpenUpload} href="#">Изменить скин</a>
+                                    <div className={styles.privInfoWrapper}>
+                                        <p className={styles.priv}>Privelegies</p>
+                                        <p className={styles.info}>У вас нету привелегий(</p>
                                     </div>
 
+                                    {/*Загрузка классического скина*/}
+                                    <button onClick={closeOpenUpload} className={styles.accountButton}>Загрузить Classic
+                                        скин
+                                    </button>
                                     <div className={closedUpload ? styles.inputUpload : styles.dNone}>
                                         <form action="">
-                                            <label htmlFor="avatar">Choose a skin picture:</label>
+                                            <label className={styles.accountButton}
+                                                   htmlFor="avatar">{nullScanImage()}</label>
                                             <input
                                                 type="file"
                                                 id="avatar"
@@ -101,21 +147,33 @@ function AccountPanel() {
                                                 onChange={handleOnChange}
                                             />
                                         </form>
-                                        <div className={styles.accountButton}>
-                                            <a onClick={uploadSkin} href="#">Отправить</a>
-                                        </div>
+                                        <button onClick={uploadSkin} className={styles.sendButton}>Отправить</button>
+                                    </div>
+
+                                    {/*Загрузка Slim скина*/}
+                                    <button onClick={closeOpenUploadSlim} className={styles.accountButton}>Загрузить
+                                        Slim скин
+                                    </button>
+                                    <div className={closedUploadSlim ? styles.inputUpload : styles.dNone}>
+                                        <form action="">
+                                            <label className={styles.accountButton}
+                                                   htmlFor="skin">{nullScanImageSlim()}</label>
+                                            <input
+                                                type="file"
+                                                id="skin"
+                                                name="skin"
+                                                accept="image/png"
+                                                onChange={handleOnChangeSlim}
+                                            />
+                                        </form>
+                                        <button onClick={uploadSkinSlim} className={styles.sendButton}>Отправить
+                                        </button>
                                     </div>
 
 
+                                    {/*<button className={styles.accountButton}>Удалить скин</button>*/}
 
-                                    <div className={styles.accountButton}>
-                                        <a href="#">Удалить скин</a>
-                                    </div>
 
-                                    <div className={styles.privInfoWrapper}>
-                                        <p className={styles.priv}>Privelegies</p>
-                                        <p className={styles.info}>У вас нету привелегий(</p>
-                                    </div>
 
 
                                 </div>

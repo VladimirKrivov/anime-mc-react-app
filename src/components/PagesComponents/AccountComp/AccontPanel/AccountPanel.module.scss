@@ -7,7 +7,11 @@
 }
 
 .accountWrapper {
-  //margin: 100px 0 0 0;
+  //background-image: url("../../../../resourses/images/homePage/background.png");
+  //background-size: auto;
+  //background-position: center;
+  //background-repeat: no-repeat;
+  //text-align: center;
   height: 100vh;
   position: relative;
   display: flex;
@@ -68,14 +72,13 @@
 
   .img1 {
 
-    width: 440px;
-    height: 650px;
-    background-image: url("../../../../resourses/images/homePage/bg_1 1.svg");
+    width: 457px;
+    height: 579px;
+    background-image: url("../../../../resourses/images/homePage/bg_1 1.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 2;
-    //padding: 0 0 0 200px;
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -86,52 +89,30 @@
 
     width: 540px;
     height: 580px;
-    background-image: url("../../../../resourses/images/homePage/bg_2 1.svg");
+    background-image: url("../../../../resourses/images/homePage/bg_2 1.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    //padding: 0 350px 0 0;
     position: absolute;
     bottom: 0px;
     right: 0;
     z-index: 2;
   }
 
-  //.girl1{
-  //  width: 600px;
-  //  height: 670px;
-  //  background-image: url("../../../../resourses/images/homePage/bg_1 1.svg");
-  //  background-position: center;
-  //  background-size: contain;
-  //  background-repeat: no-repeat;
-  //  position: absolute;
-  //  left: -50px;
-  //  bottom: -70px;
-  //  z-index: 1;
-  //
-  //}
-  //.girl2{
-  //  width: 600px;
-  //  height: 670px;
-  //  background-image: url("../../../../resourses/images/homePage/bg_2 1.svg");
-  //  background-position: center;
-  //  background-size: contain;
-  //  background-repeat: no-repeat;
-  //  position: absolute;
-  //  right: 0px;
-  //  bottom: -70px;
-  //  z-index: 1;
-  //}
 
   .blockWrapper {
     width: 800px;
     position: relative;
     padding: 150px 50px;
+    display: flex;
+    flex-direction: column;
+
 
 
     .buttonWrapper {
       width: 100%;
       display: flex;
+      justify-content: end;
 
       .button {
         display: flex;
@@ -142,6 +123,7 @@
         background-color: $oneButtonColor;
         margin: 10px;
         border-radius: 7px;
+
 
         a {
           margin: 0;
@@ -206,18 +188,13 @@
             padding: 0;
             margin: 0;
             width: 270px;
+
             label {
-              padding: 0 0 10px 0;
-              font-family: PressStartRegular, serif;
-              color: $mainTextColor;
-              font-size: 12px;
+              margin: 0;
             }
 
             input {
-              //font-family: PressStartRegular, serif;
-              color: $mainTextColor;
-              font-size: 12px;
-
+              opacity: 0;
             }
           }
         }
@@ -225,7 +202,12 @@
 
         margin: 0 0 0 25px;
 
-        .accountButton {
+        .sendButton {
+          margin: 0 !important;
+          background-color: $twoButtonColor !important;
+        }
+
+        .accountButton, .sendButton {
           width: 300px;
           height: 40px;
           background-color: $oneButtonColor;
@@ -234,22 +216,16 @@
           justify-content: center;
           align-items: center;
           border-radius: 7px;
-
-          a {
-            text-decoration: none;
-            font-family: PressStartRegular, serif;
-            color: $mainTextColor;
-            font-size: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-          }
+          text-decoration: none;
+          font-family: PressStartRegular, serif;
+          color: $mainTextColor;
+          font-size: 12px;
+          cursor: pointer;
+          border: none;
         }
 
         .privInfoWrapper {
-          padding: 50px 0 0 0;
+          padding: 0 0 50px 0;
           text-align: center;
 
           .priv {

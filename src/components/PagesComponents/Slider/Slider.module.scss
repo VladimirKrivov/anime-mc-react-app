@@ -4,25 +4,13 @@
 .sliderWrapper {
   height: 100vh;
   display: block;
-  background-image: url("../../../resourses/images/homePage/background.svg");
+  background-image: url("../../../resourses/images/homePage/background.png");
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
   position: relative;
 
-  //.giv {
-  //  position: absolute;
-  //  height: 100vh;
-  //  width: 100vw;
-  //  top: 0;
-  //  left: 0;
-  //  background-image: url("../../../resourses/images/homePage/background.svg");
-  //  background-size: auto;
-  //  background-position: center;
-  //  background-repeat: no-repeat;
-  //  text-align: center;
-  //}
 
   .loginButton {
     position: absolute;
@@ -70,9 +58,9 @@
 
   .img1 {
 
-    width: 440px;
-    height: 650px;
-    background-image: url("../../../resourses/images/homePage/bg_1 1.svg");
+    width: 457px;
+    height: 579px;
+    background-image: url("../../../resourses/images/homePage/bg_1 1.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -88,7 +76,7 @@
 
     width: 540px;
     height: 580px;
-    background-image: url("../../../resourses/images/homePage/bg_2 1.svg");
+    background-image: url("../../../resourses/images/homePage/bg_2 1.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

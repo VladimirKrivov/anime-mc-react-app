@@ -5,11 +5,10 @@ import Account from "./pages/Account";
 import {observer} from "mobx-react-lite";
 import Store from "./store/Store";
 import Instrumental from "./store/Instrumental";
-
 import AppContext from './context';
 import AuthService from "./services/AuthService";
 import axios from "axios";
-import {API_URL} from "./http";
+import {ANIME_MC_URL, API_URL} from "./http";
 
 
 function App() {
@@ -33,9 +32,20 @@ function App() {
             setLoginPanelButton(true);
         }
         setErrorLogLogin(" ")
-
-
     }
+
+    //Показать скрыть меню загрузки
+    const [downloadPanelButton, setDownloadPanelButton] = React.useState(false);
+    const clickCloseDownload = () => {
+        if (downloadPanelButton) {
+            setDownloadPanelButton(false);
+        } else {
+            setDownloadPanelButton(true);
+        }
+    }
+
+
+
 
     // Скрыть\показать меню реги
     const [regPanelButton, setRegPanelButton] = React.useState(false);
@@ -48,30 +58,29 @@ function App() {
     }
 
     // Показать ошибку логина
-    const showErrorPanelAction = () => {
-        // if (errorLogLogin !== " ") {
-            setHiddenErrorPanel(true);
-            console.log("до таймера");
-            setTimeout(() => { setHiddenErrorPanel(false) }, 2000);
-            console.log("после таймера");
-            // setErrorLogLogin(" ")
-        // }
-        // setErrorLogLogin(" ")
+    const showErrorPanelAction = (errorMessage) => {
+        setErrorLogLogin(errorMessage);
+        setHiddenErrorPanel(true);
+        console.log("до таймера");
+        setTimeout(() => {
+            setHiddenErrorPanel(false)
+        }, 2000);
     }
 
     // Показать успех логина
     const showSuccessfulPanelAction = (text) => {
         setSuccessfulLog(text);
         // if (successfulLog !== " ") {
-            setHiddenSuccessfulPanel(true);
-            console.log("до таймера");
-            setTimeout(() => { setHiddenSuccessfulPanel(false) }, 2000);
-            console.log("после таймера");
-            // setSuccessfulLog(" ");
+        setHiddenSuccessfulPanel(true);
+        console.log("до таймера");
+        setTimeout(() => {
+            setHiddenSuccessfulPanel(false)
+        }, 2000);
+        console.log("после таймера");
+        // setSuccessfulLog(" ");
         // }
         // setSuccessfulLog(" ");
     }
-
 
 
     //Авторизация
@@ -90,30 +99,28 @@ function App() {
             const responseInfoUser = await AuthService.userInfo();
             setUserInfo(responseInfoUser.data);
             showSuccessfulPanelAction("Авторизация прошла успешно!");
-            console.log("После логина:")
-            console.log(hiddenSuccessfulPanel)
-            setErrorLogLogin(" ")
+            setErrorLogLogin(" ");
+            // setTimeout(() => { window.location.assign(REACT_URL)}, 1000);
+
+
         } catch (e) {
             // console.log(e.responce?.data?.message);
             console.log(e.response.data.code);
             console.log(e.response.data.error);
-            setErrorLogLogin(e.response?.data?.error)
-            showErrorPanelAction();
-
+            showErrorPanelAction(e.response?.data?.error);
         }
     }
 
     //Регистрация
-    const registration = async (username, email,  password) => {
+    const registration = async (username, email, password) => {
         try {
-            const  response = await AuthService.registration(username, email, password);
+            const response = await AuthService.registration(username, email, password);
             console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             // localStorage.setItem('Rtoken', response.data.refreshToken);
             // setIsAuth(true);
             clickCloseButtonReg();
             showSuccessfulPanelAction("Регистрация прошла успешно!");
-
         } catch (e) {
             console.log(e.response.data.code);
             console.log(e.response.data.error);
@@ -152,12 +159,13 @@ function App() {
     //Logout
     const logout = async () => {
         try {
-            const  response = await AuthService.logout();
+            const response = await AuthService.logout();
             console.log(response);
             localStorage.removeItem('token', response.data.accessToken);
             localStorage.removeItem('Rtoken', response.data.refreshToken);
             setIsAuth(false);
             setUserInfo({});
+            window.location.assign(ANIME_MC_URL);
         } catch (e) {
             console.log(e.responce?.data?.message);
         }
@@ -165,14 +173,13 @@ function App() {
 
 
     //Загрузка Скина
-
-
     React.useEffect(() => {
 
         window.addEventListener("scroll", () => {
             setHiddenMenu(window.scrollY > 200);
             console.log(userInfo.username);
         });
+
 
         async function scanToken() {
             if (!localStorage.getItem('token') && localStorage.getItem('Rtoken')) {
@@ -184,11 +191,6 @@ function App() {
 
             }
         }
-
-        async function showError() {
-
-        }
-
 
         scanToken();
     }, []);
@@ -214,7 +216,11 @@ function App() {
                     hiddenErrorPanel,
                     registration,
                     successfulLog,
-                    hiddenSuccessfulPanel
+                    hiddenSuccessfulPanel,
+                    showSuccessfulPanelAction,
+                    showErrorPanelAction,
+                    clickCloseDownload,
+                    downloadPanelButton
                 }}>
                 <Routes>
                     <Route path="/" element={<Home/>}/>

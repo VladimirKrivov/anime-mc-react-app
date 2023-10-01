@@ -4,26 +4,15 @@ import AppContext from "../../../context";
 import ButtonSlider from "../../elements/ButtonSlider";
 
 function Slider() {
-    const {store, isAuth} = React.useContext(AppContext);
+    const {store, isAuth, clickCloseDownload} = React.useContext(AppContext);
 
 
     return (
        <div className={styles.sliderWrapper}>
-           {/*<h1>ANIMECRAFT</h1>*/}
-
-           {/*{isAuth? " " : <ButtonSlider/>}*/}
-
-           {/*<img className={styles.giv} src={gif} alt="background"/>*/}
-
-           <button  className={styles.loginButton}>download</button>
+           <button onClick={clickCloseDownload}  className={styles.loginButton}>download</button>
 
            <div className={styles.img1}></div>
            <div className={styles.img2}></div>
-
-           {/*<div className={styles.tyanWrapper}>*/}
-           {/*    <div className={styles.img1}></div>*/}
-           {/*    <div className={styles.img2}></div>*/}
-           {/*</div>*/}
 
            <div className={styles.headerLineWrapper}>
                <div className={styles.headerLine2}></div>
